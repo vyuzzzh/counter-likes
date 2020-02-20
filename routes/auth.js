@@ -9,16 +9,17 @@ router.get('/login', (req, res) => {
 router.get('/reg', (req, res, next) => {
   const { code } = req.query;
   const url = `https://oauth.vk.com/access_token?client_id=7327798&client_secret=KVv5burkbNpWD5qLKyIt&redirect_uri=https://counter-likes.herokuapp.com/reg/&code=${code}`;
-
+  console.log(`>>>>>>>>>>>>>>${code}>>>>>>>>>>>>>>>`);
+  console.log(`>>>>>>>>>>>>>>${url}>>>>>>>>>>>>>>>`);
   rp(url)
-    .then(async (objInfo) => {
+    .then((objInfo) => {
       console.log(objInfo);
       const {
         access_token, user_id, email,
       } = objInfo;
       console.log('>>>>>>>>>>>>>>TEST-USER>>>>>>>>>>>>>>>');
 
-      await User.create({ user_id, email });
+      // await User.create({ user_id, email });
       req.session.user = user._id;
       res.redirect('/');
     })
