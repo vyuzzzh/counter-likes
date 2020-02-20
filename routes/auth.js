@@ -20,7 +20,7 @@ router.get('/reg', (req, res, next) => {
       console.log('>>>>>>>>>>>>>>TEST-USER>>>>>>>>>>>>>>>');
 
       // await User.create({ user_id, email });
-      req.session.user = user._id;
+      req.session.user = user_id;
       res.redirect('/');
     })
     .catch((err) => {
