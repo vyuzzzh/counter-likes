@@ -1,0 +1,18 @@
+a {
+  margin: 10px;
+}
+
+#auth-my {
+  width: 400px;
+  margin: 30px auto;
+}
+
+.btn-primary {
+  background-color:orange; 
+  border: none;
+}
+
+.list-auctions {
+  display: flex;
+}
+

@@ -1,0 +1,29 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --ignore './sessions' ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "hbs": "^4.1.0",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.9.1",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-oauth2": "^1.5.0",
+    "passport-vkontakte": "^0.3.2",
+    "session-file-store": "^1.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "nodemon": "^2.0.2"
+  }
+}
