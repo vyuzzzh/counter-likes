@@ -5,10 +5,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 require('dotenv').config();
-const session = require('express-session');
-const FileStore = require('session-file-store')(session);
+// const session = require('express-session');
+// const FileStore = require('session-file-store')(session);
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-lawna.mongodb.net/Counter-likes`, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-lawna.mongodb.net/Counter-likes`, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
@@ -35,7 +35,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   cookie: { secure: false },
 // }));
 
-app.use('/auth', authRouter);
 
 // app.use((req, res, next) => {
 //   const { name } = req.session;
@@ -47,6 +46,7 @@ app.use('/auth', authRouter);
 // });
 
 app.use('/', indexRouter);
+app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
