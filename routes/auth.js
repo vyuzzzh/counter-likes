@@ -25,10 +25,13 @@ router.get('/reg', (req, res, next) => {
     .then((objInfo) => {
       console.log('>>>>>>>>>>>>>>>');
       console.log(objInfo);
-      const { user_id } = objInfo;
+      const id = objInfo[user_id];
+      const { access_token, email } = objInfo;
+      console.log('EEEEEEEEMAIL');
+      console.log(access_token, email);
       console.log('ID >>>>>>>>>>>>>>>');
-      console.log(user_id);
-      req.session.user = user_id;
+      console.log(id);
+      req.session.user = id;
       res.redirect('/');
     })
     .catch((err) => {
