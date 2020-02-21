@@ -32,7 +32,7 @@ router.get('/info', (req, res, next) => {
 router.get('/friends', (req, res, next) => {
   const id = req.session.user;
   const { token } = req.session;
-  const url = `https://api.vk.com/method/friends.get?user_ids=${id}&count=2&fields=bdate,contacts,photo_100&access_token=${token}&v=5.103`;
+  const url = `https://api.vk.com/method/friends.get?user_ids=${id}&count=100&fields=bdate,contacts,photo_100&access_token=${token}&v=5.103`;
   console.log('>>>>>>.', url);
 
   rp(url)
