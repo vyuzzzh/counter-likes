@@ -27,7 +27,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/auth', authRouter);
 app.use(session({
   secret: '>ochki&&nado?',
   store: new FileStore({}),
@@ -36,6 +35,7 @@ app.use(session({
   cookie: { secure: false },
 }));
 
+app.use('/auth', authRouter);
 
 app.use((req, res, next) => {
   const { name } = req.session;
