@@ -25,7 +25,8 @@ router.get('/reg', (req, res, next) => {
     .then((objInfo) => {
       console.log('>>>>>>>>>>>>>>>');
       console.log(objInfo);
-      req.session.user = user._id;
+      const { user_id } = objInfo;
+      req.session.user = user_id;
       res.redirect('/');
     })
     .catch((err) => {
