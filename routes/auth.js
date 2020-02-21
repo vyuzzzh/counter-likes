@@ -25,6 +25,7 @@ router.get('/reg', (req, res, next) => {
     .then((objInfo) => {
       console.log('>>>>>>>>>>>>>>>');
       console.log(objInfo);
+      console.log(Object.values(objInfo));
       const id = objInfo.user_id;
       const { access_token, email } = objInfo;
       console.log('EEEEEEEEMAIL');
