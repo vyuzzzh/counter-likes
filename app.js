@@ -27,24 +27,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-  secret: '>ochki&&nado?',
-  store: new FileStore({}),
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false },
-}));
+// app.use(session({
+//   secret: '>ochki&&nado?',
+//   store: new FileStore({}),
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: false },
+// }));
 
 app.use('/auth', authRouter);
 
-app.use((req, res, next) => {
-  const { name } = req.session;
-  if (name) {
-    app.locals.username = name;
-    return next();
-  }
-  return res.redirect('/auth/login');
-});
+// app.use((req, res, next) => {
+//   const { name } = req.session;
+//   if (name) {
+//     app.locals.username = name;
+//     return next();
+//   }
+//   return res.redirect('/auth/login');
+// });
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

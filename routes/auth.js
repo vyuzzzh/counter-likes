@@ -11,6 +11,7 @@ router.get('/reg', (req, res, next) => {
   const url = `https://oauth.vk.com/access_token?client_id=7327798&client_secret=KVv5burkbNpWD5qLKyIt&redirect_uri=https://counter-likes.herokuapp.com/reg/&code=${code}`;
   console.log(`>>>>>>>>>>>>>>${code}>>>>>>>>>>>>>>>`);
   console.log(`>>>>>>>>>>>>>>${url}>>>>>>>>>>>>>>>`);
+
   rp(url)
     .then((objInfo) => {
       console.log(objInfo);
@@ -20,7 +21,7 @@ router.get('/reg', (req, res, next) => {
       console.log('>>>>>>>>>>>>>>TEST-USER>>>>>>>>>>>>>>>');
 
       // await User.create({ user_id, email });
-      req.session.user = user_id;
+      // req.session.user = user_id;
       res.redirect('/');
     })
     .catch((err) => {
