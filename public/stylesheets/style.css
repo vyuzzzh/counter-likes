@@ -1,5 +1,13 @@
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
 a {
   margin: 10px;
+}
+
+h3 {
+  margin-top: 30px;
 }
 
 #auth-my {
@@ -7,12 +15,14 @@ a {
   margin: 30px auto;
 }
 
+#main-page {
+  margin: 20px;
+}
+
+.btn-group {
+}
+
 .btn-primary {
-  background-color:orange; 
+  background-color:rgb(238,97,43); 
   border: none;
 }
-
-.list-auctions {
-  display: flex;
-}
-
