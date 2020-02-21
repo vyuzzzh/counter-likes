@@ -17,7 +17,7 @@ router.get('/logout', (req, res) => {
 
 router.get('/reg', (req, res, next) => {
   const { code } = req.query;
-  const url = `https://oauth.vk.com/access_token?client_id=7327798&client_secret=KVv5burkbNpWD5qLKyIt&redirect_uri=http://localhost:3000/auth/reg/&code=${code}`;
+  const url = `https://oauth.vk.com/access_token?client_id=7327798&client_secret=KVv5burkbNpWD5qLKyIt&redirect_uri=https://counter-likes.herokuapp.com/auth/reg/&code=${code}`;
 
   rp(url)
     .then(async (objInfo) => {
