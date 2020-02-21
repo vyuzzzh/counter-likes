@@ -38,9 +38,9 @@ app.use(session({
 app.use('/auth', authRouter);
 
 app.use((req, res, next) => {
-  const { name } = req.session;
-  if (name) {
-    app.locals.username = name;
+  const { user_id } = req.session;
+  if (user_id) {
+    // app.locals.username = name;
     return next();
   }
   return res.redirect('/auth/login');
