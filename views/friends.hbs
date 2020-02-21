@@ -1,0 +1,32 @@
+<h2>Общее количество друзей: {{count}}</h2>
+
+<div>
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">id</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Фамилия</th>
+        <th scope="col">Дата рождения</th>
+        <th scope="col">Мобильный телефон</th>
+        <th scope="col">Домашний телефон</th>
+        <th scope="col">Фото</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each items}}
+      <tr>
+        <th scope="row">{{@index}}</th>
+        <td>{{this.id}}</td>
+        <td>{{this.first_name}}</td>
+        <td>{{this.last_name}}</td>
+        <td>{{this.bdate}}</td>
+        <td>{{this.mobile_phone}}</td>
+        <td>{{this.home_phone}}</td>
+        <td><img src="{{this.photo_100}}" alt="FOTKA"></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

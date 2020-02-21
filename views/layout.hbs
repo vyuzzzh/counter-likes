@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Counter-likes</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/start.css">
    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif">
   {{!-- <script defer src="/javascripts/application.js"></script> --}}
   <script defer src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -24,14 +26,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     </ul>
-    {{#if user_id}}
+    {{#if username}}
       <div class="enter">
       <a href="/personal"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{username}}</button></a>
       <a href="/auth/logout"><button style="margin-right: 20px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Выход</button></a>
     </div>
     {{else}}
     <div class="enter">
-      <a href="https://oauth.vk.com/authorize?client_id=7327798&redirect_uri=https://counter-likes.herokuapp.com/auth/reg/&scope=friends,photos,status,docs,groups,stats,email&response_type=code&v=5.52"><button style="margin-right: 20px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Регистрация</button></a>
+      <a href="https://oauth.vk.com/authorize?client_id=7327798&redirect_uri=http://localhost:3000/auth/reg/&scope=friends,photos,status,docs,groups,stats,email&response_type=code&v=5.52"><button style="margin-right: 20px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Регистрация</button></a>
     </div>
     {{/if}}
   </div>  

@@ -1,6 +1,17 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h3>Welcome User {{username}}</h3>
 
+<div id="main-page">
 {{#if username}}
-  <h2>Main page {{username}}</h2>
+<div name="blockButton" class="btn-group" role="group" aria-label="Basic example">
+  <a href='/users/info'>
+    <button name="friends" type="button" class="btn btn-secondary">Инфо</button>
+  </a>
+  <a href="/users/friends">
+    <button name="groups" type="button" class="btn btn-secondary">Друзья</button>
+  </a>
+  <a href="/users/group">
+    <button name="group" type="button" class="btn btn-secondary">Группа</button>
+  </a>
+</div>
 {{/if}}
+</div>

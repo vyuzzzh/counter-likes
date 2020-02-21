@@ -4,11 +4,10 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  console.log('USER >>>>>>>>>>>');
-  console.log(req.session.user);
+  delete req.app.locals.infoPerson;
+  delete req.app.locals.count;
+  delete req.app.locals.items;
 
-  console.log('LOCALS >>>>>');
-  console.log(req.app.locals.username);
   res.render('index', { title: 'Counter-likes' });
 });
 

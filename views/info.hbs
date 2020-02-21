@@ -1,0 +1,25 @@
+<div>
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">id</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Фамилия</th>
+        <th scope="col">Фотка</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each infoPerson}}
+      <tr>
+        <th scope="row">1</th>
+        <td>{{this.id}}</td>
+        <td>{{this.first_name}}</td>
+        <td>{{this.last_name}}</td>
+        <td><img src="{{this.photo_max}}" alt=""></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+</div>

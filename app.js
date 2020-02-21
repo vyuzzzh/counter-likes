@@ -8,11 +8,13 @@ require('dotenv').config();
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
-// mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-lawna.mongodb.net/Counter-likes`, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-lawna.mongodb.net/Counter-likes`, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
+const infoRouter = require('./routes/info');
+const friendsRouter = require('./routes/friends');
 
 
 const app = express();
@@ -48,6 +50,8 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/info', infoRouter);
+app.use('/friends', friendsRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const rp = require('request-promise');
+const User = require('../models/user');
 
 
 router.get('/login', (req, res) => {
@@ -8,7 +9,7 @@ router.get('/login', (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.session.destroy(() => {
-    // delete req.app.locals.username;
+    delete req.app.locals.username;
     res.clearCookie('connect.sid');
     res.redirect('/auth/login');
   });
@@ -16,29 +17,23 @@ router.get('/logout', (req, res) => {
 
 router.get('/reg', (req, res, next) => {
   const { code } = req.query;
-  console.log(`CODE>>>>>>>>>>>>>>${code}`);
-  const url = `https://oauth.vk.com/access_token?client_id=7327798&client_secret=KVv5burkbNpWD5qLKyIt&redirect_uri=https://counter-likes.herokuapp.com/auth/reg/&code=${code}`;
-  console.log(`URL>>>>>>>>>>>>>>>${url}`);
-
+  const url = `https://oauth.vk.com/access_token?client_id=7327798&client_secret=KVv5burkbNpWD5qLKyIt&redirect_uri=http://localhost:3000/auth/reg/&code=${code}`;
 
   rp(url)
-    .then((objInfo) => {
-      console.log('>>>>>>>>>>>>>>>');
-      console.log(objInfo);
-      // console.log(Object.values(objInfo));
-      console.log(typeof objInfo);
+    .then(async (objInfo) => {
       const info = JSON.parse(objInfo);
-      console.log('INFO <<<<<<<<<<<<<<<<');
-      console.log(typeof info);
-      console.log(info);
       const id = info.user_id;
-      const { access_token, email } = info;
-      console.log('EEEEEEEEMAIL');
-      console.log(access_token, email);
-      console.log('ID >>>>>>>>>>>>>>>');
-      console.log(id);
+      const { email, access_token, expires_in } = info;
+      const userFind = await User.findOne({ id });
+
+      if (!userFind) {
+        await User.create({
+          id, email, access_token, expires_in,
+        });
+      }
       req.session.user = id;
-      res.redirect('/');
+      req.session.token = access_token;
+      return res.redirect('/');
     })
     .catch((err) => {
       console.log(err);
