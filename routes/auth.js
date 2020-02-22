@@ -23,7 +23,7 @@ router.get('/reg', (req, res, next) => {
 
   console.log(code);
   
-  const url = `https://oauth.vk.com/access_token?client_id=7327798&client_secret=d60Ug4amPVS7N2qlGBoq&redirect_uri=https://counter-likes.herokuapp.com/auth/reg&code=${code}`;
+  const url = `https://oauth.vk.com/access_token?client_id=7327798&client_secret=d60Ug4amPVS7N2qlGBoq&redirect_uri=http://counter-likes.herokuapp.com/auth/reg&code=${code}`;
   
   console.log(`>>>>>>>URL>>>>${url}`);
   
