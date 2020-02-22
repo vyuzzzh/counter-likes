@@ -8,7 +8,9 @@ require('dotenv').config();
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-lawna.mongodb.net/Counter-likes`, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-lawna.mongodb.net/counter-likes`;
+mongoose.connect(uri, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
+  .catch((error) => console.error(error));
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
