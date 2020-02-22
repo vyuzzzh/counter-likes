@@ -24,6 +24,7 @@ router.get('/reg', (req, res, next) => {
       const id = info.user_id;
       const { email, access_token, expires_in } = info;
       const userFind = await User.findOne({ id });
+      console.log(id, email, access_token);
       console.log(`USER FINDED ${userFind}`);
 
       if (!userFind) {
